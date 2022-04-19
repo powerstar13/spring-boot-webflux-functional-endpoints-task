@@ -21,17 +21,14 @@ class HelloApplicationServiceTest {
         String name = "홍준성";
 
         Mono<HelloMessageResponse> result = helloApplicationService.helloMessage(name)
-            .log()
-            .doOnNext(helloMessageResponse -> {
-                System.out.println("to >>> " + helloMessageResponse.getTo()); // to 값 출력
-                System.out.println("message >>> " + helloMessageResponse.getMessage()); // message 값 출력
-            });
+            .log();
 
         StepVerifier.create(result)
             .expectSubscription()
             .assertNext(helloMessageResponse ->
                 assertAll(() -> {
                     assertEquals(name, helloMessageResponse.getTo()); // to 검증
+                    assertEquals("BE", helloMessageResponse.getJob()); // job 검증
                     assertEquals("hello " + name, helloMessageResponse.getMessage()); // message 검증
                 })
             )
