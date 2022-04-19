@@ -1,11 +1,19 @@
 package study.webflux.functionalendpointtask.application.hello;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 import study.webflux.functionalendpointtask.application.hello.response.HelloMessageResponse;
+import study.webflux.functionalendpointtask.application.hello.response.HelloMessageResponseFactory;
+import study.webflux.functionalendpointtask.infrastructure.webClient.WebClientService;
+import study.webflux.functionalendpointtask.infrastructure.webClient.response.PersonJobResponse;
 
 @Service
+@RequiredArgsConstructor
 public class HelloApplicationService {
+
+    private final WebClientService webClientService;
+    private final HelloMessageResponseFactory helloMessageResponseFactory;
 
     /**
      * 전달된 이름으로 Hello 메시지 보내기
@@ -14,11 +22,8 @@ public class HelloApplicationService {
      */
     public Mono<HelloMessageResponse> helloMessage(String name) {
 
-        return Mono.just(
-            HelloMessageResponse.builder()
-                .to(name)
-                .message("hello " + name)
-                .build()
-        );
+        Mono<PersonJobResponse> personJobResponseMono = webClientService.callInfoServiceJob(name);
+
+        return helloMessageResponseFactory.HelloMessageResponseBuilder(name, personJobResponseMono);
     }
 }
