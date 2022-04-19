@@ -19,9 +19,9 @@
 - 직업 데이터가 추가 되었다.
 ```json
 {
-	"to": "$name",
+    "to": "$name", 
     "job": "",
-	"message": "hello $name"
+    "message": "hello $name"
 }
 ```
 
