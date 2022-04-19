@@ -30,7 +30,7 @@ public class HelloHandler {
 
         String name = request.queryParam("name").orElse(null); // Request에서 name 필드 추출
 
-        if (StringUtils.isBlank(name)) { // name 유효성 검사
+        if (StringUtils.isBlank(name)) { // 이름 유효성 검사
             return badRequest()
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(Mono.just(new BadRequestResponse("name", "이름을 입력해 주세요.")), BadRequestResponse.class);
