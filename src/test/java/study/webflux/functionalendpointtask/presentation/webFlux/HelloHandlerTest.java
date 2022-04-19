@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class HelloHandlerTest {
 
-    private WebTestClient webTestClient; // Weroute
+    private WebTestClient webTestClient;
 
     @Autowired
     private WebFluxConfig webFluxConfig;
@@ -31,6 +31,10 @@ class HelloHandlerTest {
             .build();
     }
 
+    /**
+     * helloName Test
+     * isOk
+     */
     @Test
     void helloName() {
         String name = "홍준성";
@@ -51,6 +55,10 @@ class HelloHandlerTest {
             );
     }
 
+    /**
+     * helloName Test
+     * isBadRequest
+     */
     @Test
     void helloName_isBlank() {
         // 이름을 전송하지 않았을 경우 BadRequest 검증
