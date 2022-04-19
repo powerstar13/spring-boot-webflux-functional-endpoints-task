@@ -27,6 +27,8 @@
 
 # 생성된 파일 및 패키지 위치
 
+1. resources
+   1. application.yml
 ```java
 // HelloMessageResponse
 // HelloMessageResponseFactory
