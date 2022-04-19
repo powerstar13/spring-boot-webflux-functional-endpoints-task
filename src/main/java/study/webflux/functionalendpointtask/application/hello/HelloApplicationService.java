@@ -17,7 +17,7 @@ public class HelloApplicationService {
         return Mono.just(
             HelloMessageResponse.builder()
                 .to(name)
-                .message("Hello " + name)
+                .message("hello " + name)
                 .build()
         );
     }

@@ -50,7 +50,7 @@ class HelloHandlerTest {
             .value(helloMessageResponse ->
                 assertAll(() -> {
                     assertEquals(name, helloMessageResponse.getTo()); // to 검증
-                    assertEquals("Hello " + name, helloMessageResponse.getMessage()); // message 검증
+                    assertEquals("hello " + name, helloMessageResponse.getMessage()); // message 검증
                 })
             );
     }
