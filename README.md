@@ -8,20 +8,32 @@
 4. Functional Endpoint
 5. WebClient
 
-## Request
+## SayHello Server Request
 
-1. 외부 통신 : `GET localhost:8080/hello?name=$name`
-2. 내부 통신 : `GET localhost:8081/info-service/job?name=$name`
+`GET localhost:8080/hello?name=$name`
 
-## Response
+## SayHello Server Response
 
 `application/json`
 - 직업 데이터가 추가 되었다.
 ```json
 {
     "to": "$name", 
-    "job": "",
+    "job": "BE",
     "message": "hello $name"
+}
+```
+
+## InfoService Server Request
+
+`GET localhost:8081/info-service/job?name=$name`
+
+## InfoService Server Response
+
+`application/json`
+```json
+{ 
+    "job": "BE"
 }
 ```
 
