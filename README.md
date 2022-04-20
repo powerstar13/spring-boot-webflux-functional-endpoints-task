@@ -1,5 +1,14 @@
 # REST API에 반응하는 local 웹 서버 앱 구축
 
+## Github Repository Link
+
+`현재 접근하신 레포지토리는 SayHello Server 입니다.`
+
+### [SayHello Server](https://github.com/powerstar13/spring-boot-webflux-functional-endpoints-task)
+- Server port = 8080
+### [InfoService Server](https://github.com/powerstar13/spring-boot-msa-info-service-task)
+- Server port = 8081
+
 ## Spec
 
 1. Spring 5+ Or SpringBoot 2+
